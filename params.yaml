@@ -1,1 +1,18 @@
-key: val
+AUGMENTATION: True
+IMAGE_SIZE: [224, 224, 3]
+BATCH_SIZE: 32
+INCLUDE_TOP: False
+EPOCHS: 20
+CLASSES: 2
+WEIGHTS: imagenet
+LEARNING_RATE: 0.01
+
+
+# AUGMENTATION: True
+# IMAGE_SIZE: [224, 224, 3]
+# BATCH_SIZE: 32           # Increased from 16 to utilize 8GB VRAM
+# INCLUDE_TOP: False
+# EPOCHS: 20               # Increased from 1 for actual learning
+# CLASSES: 2
+# WEIGHTS: 'imagenet'
+# LEARNING_RATE: 0.001     # Good starting point for Transfer Learning
