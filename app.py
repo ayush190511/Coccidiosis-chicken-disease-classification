@@ -29,6 +29,7 @@ def trainRoute():
     os.system("dvc repro")
     return "Training Completed!"
 
+
 @app.route("/predict", methods=["POST"])
 @cross_origin()
 def predictRoute():
@@ -36,6 +37,7 @@ def predictRoute():
     decodeImage(image_data, clApp.filename)
     results = clApp.classifier.predict()
     return jsonify(results)
+
 
 if __name__ == "__main__":
     clApp = ClientApp()
