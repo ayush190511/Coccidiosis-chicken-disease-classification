@@ -1,0 +1,19 @@
+name: Deploy Static Site
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy index.html to Nginx
+        run: |
+          sudo rm -f /var/www/html/index.html
+          sudo cp index.html /var/www/html/index.html
+          sudo systemctl reload nginx
