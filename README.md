@@ -1,57 +1,140 @@
-# Coccidiosis-chicken-disease-classification
+# 🐔 Coccidiosis Disease Classification (Deep Learning + MLOps)
 
+An end-to-end **Deep Learning and MLOps** project for **chicken disease classification** using **CNN-based transfer learning (VGG16)** and **reproducible ML pipelines with DVC**.
 
-## Workflows
+This project focuses on **real-world ML engineering practices**, including pipeline modularization, artifact management, and training–inference consistency.
 
-1. Update config.yaml
-2. Update secrets.yaml [Optional]
-3. Update params.yaml
-4. Update the entity
-5. Update the configuration manager in src config
-6. Update the components
-7. Update the pipeline
-8. Update the main.py
-9. Update the dvc.yaml
+---
 
+## 🚀 Project Overview
 
-# How to run?
-### STEPS:
+Coccidiosis is a common poultry disease that can be identified through fecal image analysis.  
+This project builds an automated image classification system that:
 
-Clone the repository
+- Trains a CNN using transfer learning
+- Tracks data, models, and metrics using DVC
+- Ensures reproducible experimentation
+- Provides a simple web interface for image-based inference
+
+---
+
+## 🧠 Key Features
+
+- ✅ Transfer Learning using **VGG16 (ImageNet weights)**
+- ✅ ~**96% validation accuracy**
+- ✅ **DVC pipelines** for reproducible ML workflows
+- ✅ Modular pipeline design (ingestion → training → evaluation → prediction)
+- ✅ Consistent preprocessing between training and inference
+- ✅ Lightweight web UI for predictions
+
+---
+
+## 🏗 Project Workflow
+
+```
+Data Ingestion
+      ↓
+Prepare Base Model (VGG16)
+      ↓
+Model Training
+      ↓
+Model Evaluation
+      ↓
+Prediction via Web App
+```
+
+---
+
+## 📂 Project Structure
+
+```
+├── artifacts/                # Tracked outputs (data, models, metrics)
+├── config/                   # Configuration files
+├── params.yaml               # Hyperparameters tracked by DVC
+├── src/cnnClassifier/        # Source code
+│   ├── components/           # Core ML components
+│   ├── pipeline/             # DVC pipeline stages
+│   └── utils/                # Helper utilities
+├── app.py                    # Web application entry point
+├── dvc.yaml                  # DVC pipeline definition
+└── README.md
+```
+
+---
+
+## ⚙️ Tech Stack
+
+- Python
+- TensorFlow / Keras
+- CNNs (VGG16 Transfer Learning)
+- DVC (Pipelines & Versioning)
+- HTML / CSS / JavaScript
+
+---
+
+## 📊 Results
+
+| Metric | Value |
+|------|------|
+| Validation Accuracy | ~96% |
+| Validation Loss | ~0.12 |
+| Classes | Healthy / Coccidiosis Infected |
+
+---
+
+## 🔍 Prediction Examples
+
+### Healthy Chicken
+![Healthy Prediction](images/healthy.png)
+
+### Coccidiosis Infected Chicken
+![Infected Prediction](images/infected.png)
+
+---
+
+## 🔁 Reproducible Training with DVC
 
 ```bash
-https://github.com/entbappy/Chicken-Disease-Classification--Project
-```
-### STEP 01- Create a conda environment after opening the repository
-
-```bash
-conda create -n cnncls python=3.9 -y
+dvc repro
 ```
 
 ```bash
-conda activate cnncls
+dvc dag
 ```
 
+---
 
-### STEP 02- install the requirements
+## ▶️ How to Run the Project
+
+### Clone the repository
+```bash
+git clone https://github.com/ayush190511/Coccidiosis-chicken-disease-classification
+cd Coccidiosis-chicken-disease-classification
+```
+
+### Create environment
+```bash
+conda create -n chicken python=3.9 -y
+conda activate chicken
+```
+
+### Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-
+### Run app
 ```bash
-# Finally run the following command
 python app.py
 ```
 
-Now,
-```bash
-open up you local host and port
+Open browser at:
+```
+http://localhost:8080
 ```
 
+---
 
-### DVC cmd
+## 🔗 GitHub Repository
 
-1. dvc init
-2. dvc repro
-3. dvc dag
+https://github.com/ayush190511/Coccidiosis-chicken-disease-classification
